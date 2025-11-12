@@ -1,4 +1,4 @@
-/* events.js
+﻿/* events.js
    事件管理器：为项目提供可扩展的随机事件系统
    - Event structure: {id, name, check(ctx) => boolean, run(ctx) => void, description}
    - 使用 register/registerDefaultEvents/clear/checkRandomEvents
@@ -538,7 +538,7 @@
           const newKnowledgeDp = Math.floor(maxKnowledgeDp * 0.8);
           
           // 生成随机学生姓名（使用主逻辑中封装好的函数）
-          const newStudentName = (typeof window.generateName === 'function') ? window.generateName() : '新学生';
+          const newStudentName = (typeof window.generateName === 'function') ? window.generateName().name : '新学生';
           
           const options = [
             { label: '接收', effect: () => {

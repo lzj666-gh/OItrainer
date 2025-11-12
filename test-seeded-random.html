@@ -204,13 +204,13 @@
       // 使用今日种子生成两组数据
       setRandomSeed(seed);
       const data1 = {
-        names: [generateName(), generateName(), generateName()],
+        names: [generateName().name, generateName().name, generateName().name],
         randoms: [getRandom(), getRandom(), getRandom()]
       };
       
       setRandomSeed(seed);
       const data2 = {
-        names: [generateName(), generateName(), generateName()],
+        names: [generateName().name, generateName().name, generateName().name],
         randoms: [getRandom(), getRandom(), getRandom()]
       };
       
@@ -253,9 +253,9 @@
         
         return {
           students: [
-            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
-            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
-            { name: generateName(), thinking: uniformInt(50, 80), coding: uniformInt(50, 80) }
+            { name: generateName().name, thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
+            { name: generateName().name, thinking: uniformInt(50, 80), coding: uniformInt(50, 80) },
+            { name: generateName().name, thinking: uniformInt(50, 80), coding: uniformInt(50, 80) }
           ],
           weather: {
             temp: normal(20, 5),

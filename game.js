@@ -1316,18 +1316,24 @@ function initGame(difficulty, province_choice, student_count){
     // 保证生成的名字不重复
     do {
       name = generateName(province_choice);
-    } while (usedNames.has(name));
-    usedNames.add(name);
+    } while (usedNames.has(name.name));
+    usedNames.add(name.name);
 
     // 正态分布生成属性
     let mean = (min_val + max_val) / 2;
     let stddev = (max_val - min_val);
-    let thinking = clamp(normal(mean, stddev), 0, 100);
-    let coding = clamp(normal(mean, stddev), 0, 100);
-    let mental = clamp(normal(mean, stddev), 0, 100);
+	  let thinking = clamp(normal(mean, stddev), 0, 100) * (name.weight / 2000);
+	  let coding = clamp(normal(mean, stddev), 0, 100) * (name.weight / 2000);
+	  let mental = clamp(normal(mean, stddev), 0, 100);
 
     // 创建学生对象
-    const newStud = new Student(name, thinking, coding, mental);
+    const newStud = new Student(name.name, thinking, coding, mental);
+
+    newStud.knowledge_dp *= name.weight / 1000;
+    newStud.knowledge_ds *= name.weight / 1000;
+    newStud.knowledge_graph *= name.weight / 1000;
+    newStud.knowledge_math *= name.weight / 1000;
+    newStud.knowledge_string *= name.weight / 1000;
 
     try {
       if (
